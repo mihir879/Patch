@@ -2,7 +2,7 @@ pipeline {
  agent any
  
   parameters{
-          string(name: 'File_Name', defaultValue: '/tmp/MIHIR/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv', description: 'compute csv file name') 
+          string(name: 'File_Name', defaultValue: '/tmp/MIHIR/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv') 
           }
  
  stages {
