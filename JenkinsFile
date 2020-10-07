@@ -7,11 +7,20 @@ pipeline {
  
  stages {
  
+  stage('Build') {
+            steps {
+                sh 'echo "Starting Build"'
+                sh '''
+                    sh read $File_Name
+                '''
+            }
+        }
+ 
  stage('Patching Compute OCI Instances') {
  steps {
                 script {
                          def util = load  ("${WORKSPACE}/Patch/test_patch.groovy")
-                         util.csvReader("${params.File_Name}")
+                         util.csvReader('/tmp/MIHIR/serverlist.csv')
                          			}
                 }
             }
