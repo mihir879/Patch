@@ -1,1 +1,20 @@
-
+pipeline {
+ agent any
+ 
+  parameters{
+          string(name: 'File_Name', defaultValue: '/tmp/MIHIR/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv', description: 'compute csv file name') 
+          }
+ 
+ stages {
+ 
+ stage('Patching Compute OCI Instances') {
+ steps {
+                script {
+                         def util = load  ("${WORKSPACE}/Patch/test_patch.groovy")
+                         util.csvReader("${params.File_Name}")
+                         			}
+                }
+            }
+ }
+ 
+ }
