@@ -63,3 +63,30 @@ def wait_for_build_complete(String jobName, int build_number) {
             }
         }
 }
+
+//CSV file read method
+@NonCPS
+def csvReader(String Filename)
+{
+	final CSV_HEADER_SERVERS = "Servers"
+	def inputFile = new File(Filename)
+	def serversindex = null
+	def readHeader = false
+	def servers=null
+	
+	inputFile.splitEachLine(",") { fields ->
+		
+		if(readHeader == false) {
+			
+   def len = fields.size()
+
+   for(int i=0; i<len; i++) {
+	   
+	   if (fields[i].equalsIgnoreCase(CSV_HEADER_SERVERS))
+	   serversindex = i
+	       }
+
+  }
+		
+		if(readHeader) {
+			
