@@ -7,6 +7,12 @@ pipeline {
  
  stages {
  
+ stage('Git file copy') {
+ steps {
+ git branch: 'master', url: 'https://github.com/mihir879/Patch.git'
+   }
+}
+ 
   stage('Build') {
             steps {
                 sh 'echo "Starting Build"'
