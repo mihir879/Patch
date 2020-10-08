@@ -16,11 +16,15 @@ pipeline {
             }
         }
  
+ environment {
+    FILENAME2= readFile '/tmp/MIHIR/serverlist.csv'
+    }
+    
  stage('Patching Compute OCI Instances') {
  steps {
                 script {
                          def util = load  ("${WORKSPACE}/Patch/test_patch.groovy")
-                         util.csvReader('/tmp/MIHIR/serverlist.csv')
+                         util.csvReader("$FILENAME2")
                          			}
                 }
             }
