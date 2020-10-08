@@ -66,7 +66,7 @@ def wait_for_build_complete(String jobName, int build_number) {
 
 //CSV file read method
 @NonCPS
-def csvReader(String Filename)
+def csvReader(String FILENAME2)
 {
 	final CSV_HEADER_SERVERS = "Servers"
 	def inputFile = new File(Filename)
